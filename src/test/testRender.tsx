@@ -3,20 +3,40 @@ import { render } from '@testing-library/react';
 import { ReactNode } from 'react';
 import BooksContext from '../context/BooksContext';
 import { booksFixture } from './fixtures';
+import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+import BookDetail from '../pages/BookDetail';
+
+const getRouter = (Component: ReactNode) =>
+  createMemoryRouter([
+    {
+      path: '/',
+      element: (
+        <BooksContext.Provider
+          value={{
+            findBooks: () => {
+              return Promise.resolve({
+                data: booksFixture,
+                error: undefined,
+              });
+            },
+          }}
+        >
+          {Component}
+        </BooksContext.Provider>
+      ),
+    },
+    {
+      path: '/books/:id',
+      element: <BookDetail />,
+    },
+  ]);
 
 const testRender = ({ Component }: { Component: ReactNode }) => {
+  const router = getRouter(Component);
+
   return render(
     <ThemeProvider theme={{}}>
-      <BooksContext.Provider
-        value={{
-          findBooks: () => ({
-            booksFixture,
-            error: undefined,
-          }),
-        }}
-      >
-        {Component}
-      </BooksContext.Provider>
+      <RouterProvider router={router} />
     </ThemeProvider>,
   );
 };
