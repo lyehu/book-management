@@ -4,6 +4,8 @@ import Title from '../../components/Title';
 import Book from '../../app/domain/Book';
 import BooksContext from '../../context/BooksContext';
 import Header from '../../components/Header';
+import Thumbnail from '../../components/Thumbnail';
+import ThumbnailList from '../../components/ThumbnailList';
 
 export default function MainPage() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -24,15 +26,17 @@ export default function MainPage() {
     <>
       <Title>Books list</Title>
 
-      {books?.map((eachBook: Book) => {
-        return (
-          <div key={eachBook.id}>
-            <img src={eachBook.coverUrl} alt={eachBook.title} />
+      <ThumbnailList>
+        {books?.map((eachBook: Book) => {
+          return (
+            <div key={eachBook.id}>
+              <Thumbnail src={eachBook.coverUrl} alt={eachBook.title} />
 
-            <Header>{eachBook.title}</Header>
-          </div>
-        );
-      })}
+              <Header>{eachBook.title}</Header>
+            </div>
+          );
+        })}
+      </ThumbnailList>
     </>
   );
 }
