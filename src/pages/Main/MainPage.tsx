@@ -6,6 +6,7 @@ import BooksContext from '../../context/BooksContext';
 import Header from '../../components/Header';
 import Thumbnail from '../../components/Thumbnail';
 import ThumbnailList from '../../components/ThumbnailList';
+import { Link } from 'react-router-dom';
 
 export default function MainPage() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -29,11 +30,11 @@ export default function MainPage() {
       <ThumbnailList>
         {books?.map((eachBook: Book) => {
           return (
-            <div key={eachBook.id}>
-              <Thumbnail src={eachBook.coverUrl} alt={eachBook.title} />
+            <Link to={`/books/${eachBook.id}`} key={eachBook.id}>
+              <Thumbnail src={eachBook.coverUrl} alt={`${eachBook.title} details page`} />
 
               <Header>{eachBook.title}</Header>
-            </div>
+            </Link>
           );
         })}
       </ThumbnailList>
