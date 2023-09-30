@@ -1,3 +1,3 @@
 export default function BookDetailPage() {
-  return <div></div>;
+  return <div>Book details page</div>;
 }

@@ -2,6 +2,7 @@ import { ThemeProvider } from '@mui/material';
 import { render } from '@testing-library/react';
 import { ReactNode } from 'react';
 import BooksContext from '../context/BooksContext';
+import { booksFixture } from './fixtures';
 
 const testRender = ({ Component }: { Component: ReactNode }) => {
   return render(
@@ -9,7 +10,7 @@ const testRender = ({ Component }: { Component: ReactNode }) => {
       <BooksContext.Provider
         value={{
           findBooks: () => ({
-            data: {},
+            booksFixture,
             error: undefined,
           }),
         }}
