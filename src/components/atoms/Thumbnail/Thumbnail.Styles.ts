@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import borders from '../../styles/theme/borders';
-import colors from '../../styles/theme/colors';
+import borders from '../../../styles/theme/borders';
+import colors from '../../../styles/theme/colors';
 
 export const Thumbnail = styled.img`
     border-radius: ${borders.xs}px;

@@ -1,16 +1,16 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 
-import Title from '../../components/Title';
-import Book from '../../app/domain/Book';
-import BooksContext from '../../context/BooksContext';
-import Header from '../../components/Header';
-import Thumbnail from '../../components/Thumbnail';
-import ThumbnailList from '../../components/ThumbnailList';
+import Title from '../../components/atoms/Title';
+import Book from '../../app/books/domain/Book';
+import { BooksContext } from '../../app/books/service/BooksContext';
+import Header from '../../components/atoms/Header';
+import Thumbnail from '../../components/atoms/Thumbnail';
+import ThumbnailList from '../../components/molecules/ThumbnailList';
 import { Link } from 'react-router-dom';
 
 export default function MainPage() {
   const [books, setBooks] = useState<Book[]>([]);
-  const booksContext = useContext(BooksContext) as Record<string, () => Promise<{ data: Book[]; error: unknown }>>;
+  const booksContext = useContext(BooksContext);
 
   const loadBooks = useCallback(async () => {
     const { data, error } = await booksContext.findBooks();

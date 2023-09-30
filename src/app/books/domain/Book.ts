@@ -1,4 +1,4 @@
-import BaseEntity from './BaseEntity';
+import BaseEntity from '../../domain/BaseEntity';
 
 export default class Book extends BaseEntity {
   title?: string = '';
@@ -13,5 +13,11 @@ export default class Book extends BaseEntity {
     this.author = author;
     this.price = price;
     this.coverUrl = cover_url;
+  }
+
+  public isEmpty() {
+    if (this.author === '' && this.title === '' && this.price === 0 && this.coverUrl === '') {
+      return true;
+    }
   }
 }

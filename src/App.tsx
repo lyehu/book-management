@@ -1,7 +1,6 @@
 import './App.css';
 import MainPage from './pages/Main';
-import BooksContext from './context/BooksContext';
-import { findBooks } from './app/application/api/findBooks';
+import { BookProvider } from './app/books/service/BooksContext';
 import BookDetail from './pages/BookDetail';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
@@ -9,9 +8,9 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      <BooksContext.Provider value={{ findBooks }}>
+      <BookProvider>
         <MainPage />
-      </BooksContext.Provider>
+      </BookProvider>
     ),
   },
   {
