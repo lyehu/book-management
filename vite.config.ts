@@ -5,8 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: {
-      '@mui/styled-engine': '@mui/styled-engine-sc',
-    },
+    alias: 
+      { find: '@mui/styled-engine', replacement: '@mui/styled-engine-sc' },
   },
 })

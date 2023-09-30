@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import fontSizes from '../../styles/theme/fontSizes';
 
 export const Subtitle = styled.div`
-  font-size: ${props => props.theme.fontSizes.lg}px;
+  font-size: ${fontSizes.lg}px;
   font-weight: 700;
 `;

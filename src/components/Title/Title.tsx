@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import fontSizes from '../../styles/theme/fontSizes';
 
 export const Title = styled.div`
-  font-size: ${props => props.theme.fontSizes.xl}px;
+  font-size: ${fontSizes.xl}px;
   font-weight: 700;
 `;

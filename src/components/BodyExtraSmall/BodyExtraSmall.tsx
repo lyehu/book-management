@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import fontSizes from '../../styles/theme/fontSizes';
 
 export const BodyExtraSmall = styled.div`
-  font-size: ${props => props.theme.fontSizes.xs}px;
+  font-size: ${fontSizes.xs}px;
   font-weight: 400;
 `;

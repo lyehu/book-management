@@ -1,7 +1,9 @@
-import { describe, expect, it } from 'vitest';
+import { describe, it } from 'vitest';
+import testRender from './test/testRender';
+import MainPage from './pages/Main';
 
 describe('App', () => {
   it('Runs tests', () => {
-    expect(true).toBeTruthy();
+    testRender({ Component: <MainPage /> });
   });
 });
