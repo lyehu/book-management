@@ -52,7 +52,7 @@ export default function BookDetailPage() {
             />
           </BookBody>
 
-          <Button fluid>Buy</Button>
+          <Button fullWidth>Buy</Button>
         </Container>
       </Main>
     </>

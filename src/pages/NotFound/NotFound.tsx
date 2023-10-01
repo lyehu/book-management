@@ -13,7 +13,7 @@ export default function NotFound() {
   return (
     <Main>
       <Container>
-        <Image src={ErrorImage} alt="" />
+        <Image src={ErrorImage} alt="" height={275} width="60%" />
         <Title>Ops, something has gone wrong</Title>
         <Paragraph>The page you're looking for doesn't seem to exist, looking for some books?</Paragraph>
         <CenteredButton onClick={onClick}>See all books</CenteredButton>

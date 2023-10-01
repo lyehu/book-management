@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const Button = styled.button<{ fluid?: boolean }>`
+const Button = styled.button<{ fullWidth?: boolean }>`
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  width: ${(props) => (props.fluid ? '100%' : 'fit-content')};
+  width: ${(props) => (props.fullWidth ? '100%' : 'fit-content')};
   min-width: 80px;
   height: 40px;
   gap: 8px;

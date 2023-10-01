@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import fontSizes from '../../../styles/theme/fontSizes';
 
 export const InputText = styled.input`
   width: 100%;
@@ -6,31 +7,31 @@ export const InputText = styled.input`
   height: 40px;
   padding: 0 12px;
   border-radius: 8px;
-  font-size: ${(props) => props.theme.fontSizes.xs}px;
-  color: ${(props) => props.theme.colors.dark};
+  font-size: ${fontSizes.xs}px;
+  color: ${(props) => props.theme.palette.grey['800']};
   transition: none !important;
-  background-color: ${(props) => props.theme.colors.light};
+  background-color: ${(props) => props.theme.palette.grey['100']};
   outline: unset;
   box-sizing: border-box;
-  border: 1px solid ${(props) => props.theme.colors.grey3};
+  border: 1px solid ${(props) => props.theme.palette.grey.grey3};
 
   &:focus {
-    border-color: ${(props) => props.theme.colors.primary};
+    border-color: ${(props) => props.theme.palette.primary.main};
   }
 
   &::placeholder {
-    color: ${(props) => props.theme.colors.grey2};
+    color: ${(props) => props.theme.palette.grey.grey2};
   }
 
   &:disabled {
-    background-color: ${(props) => props.theme.colors.grey4};
+    background-color: ${(props) => props.theme.palette.grey.grey4};
 
     &:hover {
       cursor: not-allowed;
     }
 
     &::placeholder {
-      color: ${(props) => props.theme.colors.grey2};
+      color: ${(props) => props.theme.palette.grey.grey2};
     }
   }
 `;
