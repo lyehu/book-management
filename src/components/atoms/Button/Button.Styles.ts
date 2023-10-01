@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
-  width: fit-content;
+const Button = styled.button<{ fluid: boolean }>`
+  width: ${(props) => (props.fluid ? '100%' : 'fit-content')};
   min-width: 80px;
   height: 40px;
   gap: 8px;
@@ -14,8 +14,8 @@ const Button = styled.button`
   border-radius: 8px;
   background-image: linear-gradient(
     to right,
-    ${(props) => props.theme.colors.primary} 50%,
-    ${(props) => props.theme.colors.secondary} 100%
+    ${(props) => props.theme.palette.primary.main} 50%,
+    ${(props) => props.theme.palette.secondary.main} 100%
   );
 
   &:hover {
