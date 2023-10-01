@@ -12,6 +12,8 @@ import { COVER_REGEX } from '../../app/books/domain/Cover/Cover';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import ErrorMessage from '../../components/atoms/ErrorMessage';
+import { AddBookDTO, addBook } from '../../app/books/service/bookService';
+import { useNavigate } from 'react-router-dom';
 
 const formSchema = yup.object({
   title: yup
@@ -29,14 +31,8 @@ const formSchema = yup.object({
   coverUrl: yup.string().matches(COVER_REGEX, 'Please provide a valid image url'),
 });
 
-type IFormInput = {
-  title: string;
-  author: string;
-  price: string;
-  coverUrl?: string;
-};
-
 export default function NewBook() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -53,8 +49,8 @@ export default function NewBook() {
     },
   });
 
-  const onSubmit: SubmitHandler<IFormInput> = () => {
-    console.log(getValues(), getValues);
+  const onSubmit: SubmitHandler<AddBookDTO> = () => {
+    addBook(getValues(), navigate);
   };
 
   return (
