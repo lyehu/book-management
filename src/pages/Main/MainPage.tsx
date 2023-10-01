@@ -42,7 +42,7 @@ export default function MainPage() {
         {books?.map((eachBook: Book) => {
           return (
             <Link to={`/books/${eachBook.id}`} key={eachBook.id}>
-              <Thumbnail src={eachBook.coverUrl} alt={`${eachBook.title} details page`} />
+              <Thumbnail src={eachBook.coverUrl.value} alt={`${eachBook.title.value} details page`} />
             </Link>
           );
         })}

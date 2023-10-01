@@ -31,12 +31,15 @@ export default function BookDetailPage() {
 
   return (
     <>
-      <Cover url={book?.coverUrl} />
+      <Cover url={book?.coverUrl.value} />
       <Main>
         <Container>
           <Header>
-            <TitleWithSkeleton title={book?.title} />
-            <BodyWithSkeleton size={BodySkeletonSize.XS} text={book && `${book?.price} - ${book?.author}`} />
+            <TitleWithSkeleton title={book?.title.value} />
+            <BodyWithSkeleton
+              size={BodySkeletonSize.XS}
+              text={book && `${book?.price.value} - ${book?.author.value}`}
+            />
           </Header>
           <BookBody>
             <BodyWithSkeleton

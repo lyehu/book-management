@@ -13,7 +13,7 @@ describe('App', () => {
     });
 
     const linkElement = (await screen.findAllByRole('link'))[target];
-    const title = booksFixture[target].title as string;
+    const title = booksFixture[target].title.value as string;
 
     await userEvent.click(linkElement);
 
