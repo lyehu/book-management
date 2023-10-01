@@ -14,10 +14,4 @@ export default class Book extends BaseEntity {
     this.price = price;
     this.coverUrl = cover_url;
   }
-
-  public isEmpty() {
-    if (this.author === '' && this.title === '' && this.price === 0 && this.coverUrl === '') {
-      return true;
-    }
-  }
 }
