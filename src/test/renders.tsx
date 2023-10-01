@@ -4,7 +4,7 @@ import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
 import theme from '../styles/theme';
 import { ThemeProvider } from 'styled-components';
-import { routerConfig } from '../router';
+import { routerConfig } from '../routerConfig';
 
 export const renderWithRouter = (route: string) => {
   const router = createMemoryRouter(routerConfig, {
