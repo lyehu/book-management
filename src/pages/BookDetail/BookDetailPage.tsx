@@ -3,11 +3,12 @@ import Cover from '../../components/atoms/Cover';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { BooksContext } from '../../app/books/service/BooksContext';
 import Book from '../../app/books/domain/Book';
-import Title from '../../components/atoms/Title';
 import { Container } from '@mui/material';
 import { BookBody, BookHeader, Main } from './BookDetail.Styles';
-import BodyLarge from '../../components/atoms/BodyLarge';
 import Button from '../../components/atoms/Button';
+import TitleWithSkeleton from '../../components/molecules/TitleWithSkeleton';
+import BodyWithSkeleton from '../../components/molecules/BodyWithSkeleton';
+import { BodySkeletonSize } from '../../components/molecules/BodyWithSkeleton/BodyWithSkeleton';
 
 export default function BookDetailPage() {
   const { id } = useParams();
@@ -29,23 +30,25 @@ export default function BookDetailPage() {
 
   return (
     <>
-      <Cover coverUrl={book?.coverUrl} />
+      <Cover url={book?.coverUrl} />
       <Main>
         <Container>
           <BookHeader>
-            <Title>{book?.title}</Title>
-            <BodyLarge>
-              {book?.price} - {book?.author}
-            </BodyLarge>
+            <TitleWithSkeleton title={book?.title} />
+            <BodyWithSkeleton size={BodySkeletonSize.XS} text={book && `${book?.price} - ${book?.author}`} />
           </BookHeader>
           <BookBody>
-            <BodyLarge>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            <BodyWithSkeleton
+              size={BodySkeletonSize.L}
+              text={
+                book &&
+                `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
               ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
               fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum.
-            </BodyLarge>
+              mollit anim id est laborum.`
+              }
+            />
           </BookBody>
 
           <Button fluid>Buy</Button>

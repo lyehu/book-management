@@ -13,7 +13,7 @@ export default function MainPage() {
   const booksContext = useContext(BooksContext);
 
   const loadBooks = useCallback(async () => {
-    const { data, error } = await booksContext.findBooks();
+    const { data, error } = await booksContext.findBooks({});
     if (error) {
       return;
     }
