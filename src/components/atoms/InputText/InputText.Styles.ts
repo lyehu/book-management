@@ -5,9 +5,9 @@ export const InputText = styled.input`
   width: 100%;
   border: unset;
   height: 40px;
-  padding: 0 12px;
+  padding: 24px 16px;
   border-radius: 8px;
-  font-size: ${fontSizes.xs}px;
+  font-size: ${fontSizes.md}px;
   color: ${(props) => props.theme.palette.grey['800']};
   transition: none !important;
   background-color: ${(props) => props.theme.palette.grey['100']};

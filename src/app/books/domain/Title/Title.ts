@@ -1,6 +1,6 @@
 import { TitleErrors } from './errors';
 
-const MIN_CHARS = 2;
+export const TITLE_REGEX = /^(?=.*[\p{L}\p{N}])([\p{L}\p{N}\p{P}\p{Zs}'"“”‘’-]+)$/u;
 
 export default class Title {
   value: string = '';
@@ -11,7 +11,7 @@ export default class Title {
   }
 
   ensureIsValid(value: string) {
-    if (value.length < MIN_CHARS) {
+    if (!TITLE_REGEX.test(value)) {
       throw new Error(TitleErrors.INVALID_PARAMS);
     }
   }

@@ -1,6 +1,6 @@
 import { CoverErrors } from './errors';
 
-const REGEX = /\.(jpg|jpeg|png|gif|bmp)$/i;
+export const COVER_REGEX = /\.(jpg|jpeg|png|gif|bmp)$/i;
 
 export default class Cover {
   value: string = '';
@@ -11,7 +11,7 @@ export default class Cover {
   }
 
   ensureIsValid(value: string) {
-    if (!REGEX.test(value)) {
+    if (!COVER_REGEX.test(value)) {
       throw new Error(CoverErrors.INVALID_PARAMS);
     }
   }

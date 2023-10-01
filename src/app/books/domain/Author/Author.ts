@@ -1,6 +1,6 @@
 import { AuthorErrors } from './errors';
 
-const REGEX = /^(?! *$)[A-Za-zÁáÉéÍíÓóÚúÑñ\s.'-]+$/;
+export const AUTHOR_REGEX = /^(?! *$)[A-Za-zÁáÉéÍíÓóÚúÑñ\s.'-]+$/;
 
 export default class Author {
   value: string = '';
@@ -11,7 +11,7 @@ export default class Author {
   }
 
   ensureIsValid(value: string) {
-    if (!REGEX.test(value)) {
+    if (!AUTHOR_REGEX.test(value)) {
       throw new Error(AuthorErrors.INVALID_PARAMS);
     }
   }

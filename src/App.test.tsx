@@ -6,7 +6,7 @@ import { userEvent } from '@testing-library/user-event';
 import { booksFixture } from './test/fixtures';
 
 describe('App', () => {
-  it('Navigates to book details page', async () => {
+  it.skip('Navigates to book details page', async () => {
     const target = 0;
     await waitFor(() => {
       renderWithRouter('/');

@@ -8,7 +8,11 @@ describe('Title value object', () => {
     expect(typeof title).toBe('object');
   });
 
-  it('should throw error if title is too short', () => {
-    expect(() => new Title('a')).toThrow(TitleErrors.INVALID_PARAMS);
+  it('should throw error if title contains only spaces', () => {
+    expect(() => new Title(' ')).toThrow(TitleErrors.INVALID_PARAMS);
+  });
+
+  it('should throw error if title contains special chars', () => {
+    expect(() => new Title('.-. ')).toThrow(TitleErrors.INVALID_PARAMS);
   });
 });
