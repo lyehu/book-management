@@ -19,6 +19,6 @@ export const renderWithRouter = (route: string) => {
   );
 };
 
-export const renderWithProviders = ({ Component }: { Component: ReactNode }) => {
-  return render(<ThemeProvider theme={theme}>{Component}</ThemeProvider>);
-};
+export const ProvidersWrapper = ({ children }: { children: ReactNode }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+);

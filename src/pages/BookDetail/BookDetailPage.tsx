@@ -20,7 +20,7 @@ export default function BookDetailPage() {
       const result = await getBook(id, navigate);
       setBook(result);
     },
-    [getBook],
+    [getBook, navigate],
   );
 
   useEffect(() => {
