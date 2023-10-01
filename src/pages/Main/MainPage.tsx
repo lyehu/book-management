@@ -6,10 +6,13 @@ import { BooksContext } from '../../app/books/service/BooksContext';
 import Header from '../../components/atoms/Header';
 import Thumbnail from '../../components/atoms/Thumbnail';
 import ThumbnailList from '../../components/molecules/ThumbnailList';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Container } from '@mui/material';
+import Button from '../../components/atoms/Button';
+import { ButtonContainer } from './MainPage.Styles';
 
 export default function MainPage() {
+  const navigate = useNavigate();
   const [books, setBooks] = useState<Book[]>([]);
   const booksContext = useContext(BooksContext);
 
@@ -26,6 +29,10 @@ export default function MainPage() {
     loadBooks();
   }, [loadBooks]);
 
+  const navigateToNewBook = () => {
+    navigate('/new-book');
+  };
+
   return (
     <Container>
       <Header>
@@ -40,6 +47,9 @@ export default function MainPage() {
           );
         })}
       </ThumbnailList>
+      <ButtonContainer>
+        <Button onClick={navigateToNewBook}>Add book</Button>
+      </ButtonContainer>
     </Container>
   );
 }

@@ -19,4 +19,15 @@ describe('App', () => {
 
     expect(await screen.findByText(title)).toBeInTheDocument;
   });
+
+  it('Navigates to new book page', async () => {
+    await waitFor(() => {
+      renderWithRouter('/');
+    });
+
+    const newBookButton = await screen.findByText('Add book');
+    await userEvent.click(newBookButton);
+
+    expect(await screen.findByText('Add new book details')).toBeInTheDocument;
+  });
 });
