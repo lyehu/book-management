@@ -1,26 +1,11 @@
 import './App.css';
-import MainPage from './pages/Main';
-import { BookProvider } from './app/books/service/BooksContext';
-import BookDetail from './pages/BookDetail';
+
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: (
-      <BookProvider>
-        <MainPage />
-      </BookProvider>
-    ),
-  },
-  {
-    path: '/books/:id',
-    element: <BookDetail />,
-  },
-]);
+import { routerConfig } from './routerConfig';
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={createBrowserRouter(routerConfig)} />;
 }
 
 export default App;

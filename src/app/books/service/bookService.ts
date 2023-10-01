@@ -1,8 +1,8 @@
-import { redirect } from 'react-router-dom';
+import { NavigateFunction } from 'react-router-dom';
 import { getByBookId } from '../infrastructure/getByBookId';
 import { BookErrorCode } from '../domain/errors';
 
-export const getBook = async (id: string | undefined) => {
+export const getBook = async (id: string | undefined, navigate: NavigateFunction) => {
   if (!id) {
     throw new Error(BookErrorCode.INVALID_PARAMS);
   }
@@ -10,6 +10,6 @@ export const getBook = async (id: string | undefined) => {
   try {
     return await getByBookId(id);
   } catch (error) {
-    redirect('/404');
+    navigate('/not-found', { replace: true });
   }
 };

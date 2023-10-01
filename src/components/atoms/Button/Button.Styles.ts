@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.button<{ fluid: boolean }>`
+const Button = styled.button<{ fluid?: boolean }>`
   width: ${(props) => (props.fluid ? '100%' : 'fit-content')};
   min-width: 80px;
   height: 40px;
