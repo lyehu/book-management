@@ -7,6 +7,7 @@ import Header from '../../components/atoms/Header';
 import Thumbnail from '../../components/atoms/Thumbnail';
 import ThumbnailList from '../../components/molecules/ThumbnailList';
 import { Link } from 'react-router-dom';
+import { Container } from '@mui/material';
 
 export default function MainPage() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -26,20 +27,19 @@ export default function MainPage() {
   }, [loadBooks]);
 
   return (
-    <>
-      <Title>Books list</Title>
-
+    <Container>
+      <Header>
+        <Title>Books list</Title>
+      </Header>
       <ThumbnailList>
         {books?.map((eachBook: Book) => {
           return (
             <Link to={`/books/${eachBook.id}`} key={eachBook.id}>
               <Thumbnail src={eachBook.coverUrl} alt={`${eachBook.title} details page`} />
-
-              <Header>{eachBook.title}</Header>
             </Link>
           );
         })}
       </ThumbnailList>
-    </>
+    </Container>
   );
 }

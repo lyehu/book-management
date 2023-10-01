@@ -4,11 +4,12 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import { BooksContext } from '../../app/books/service/BooksContext';
 import Book from '../../app/books/domain/Book';
 import { Container } from '@mui/material';
-import { BookBody, BookHeader, Main } from './BookDetail.Styles';
+import { BookBody, Main } from './BookDetail.Styles';
 import Button from '../../components/atoms/Button';
 import TitleWithSkeleton from '../../components/molecules/TitleWithSkeleton';
 import BodyWithSkeleton from '../../components/molecules/BodyWithSkeleton';
 import { BodySkeletonSize } from '../../components/molecules/BodyWithSkeleton/BodyWithSkeleton';
+import Header from '../../components/atoms/Header';
 
 export default function BookDetailPage() {
   const { id } = useParams();
@@ -33,10 +34,10 @@ export default function BookDetailPage() {
       <Cover url={book?.coverUrl} />
       <Main>
         <Container>
-          <BookHeader>
+          <Header>
             <TitleWithSkeleton title={book?.title} />
             <BodyWithSkeleton size={BodySkeletonSize.XS} text={book && `${book?.price} - ${book?.author}`} />
-          </BookHeader>
+          </Header>
           <BookBody>
             <BodyWithSkeleton
               size={BodySkeletonSize.L}
