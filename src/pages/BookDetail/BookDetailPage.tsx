@@ -43,7 +43,7 @@ export default function BookDetailPage() {
           </Header>
           <BookBody>
             <BodyWithSkeleton
-              size={BodySkeletonSize.L}
+              size={BodySkeletonSize.M}
               text={
                 book &&
                 `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
