@@ -1,4 +1,4 @@
-# Zeelo Frontend Candidate Assignment
+# Book management application
 
 ## Requirements
 - node@16
@@ -8,5 +8,3 @@
 - `npm ci`
 - `npm start`
 
-## Assignment
-You will find the instructions in the attached document.
